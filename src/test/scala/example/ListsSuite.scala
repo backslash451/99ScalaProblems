@@ -30,4 +30,19 @@ class ListsSuite extends FunSuite {
     }
   }
   
+  test("penultimate: on empty list") {
+    new TestSets {
+      val thrown = intercept[NoSuchElementException] {
+        penultimate(empty)
+      }
+      assert(thrown.getMessage === "NoSuchElementException")
+    }
+  }
+  
+  test("penultimate: on simple list") {
+    new TestSets {
+      assert(penultimate(l) === 5)
+    }
+  }
+  
 }
