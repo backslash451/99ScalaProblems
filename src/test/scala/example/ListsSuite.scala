@@ -15,6 +15,7 @@ class ListsSuite extends FunSuite {
     val l = List(1, 1, 2, 3, 5, 8)
   }
   
+  //P01 (*) Find the last element of a list.
   test("last: on empty list") {
     new TestSets {
       val thrown = intercept[NoSuchElementException] {
@@ -30,6 +31,7 @@ class ListsSuite extends FunSuite {
     }
   }
   
+  //P02 (*) Find the last but one element of a list.
   test("penultimate: on empty list") {
     new TestSets {
       val thrown = intercept[NoSuchElementException] {
@@ -42,6 +44,31 @@ class ListsSuite extends FunSuite {
   test("penultimate: on simple list") {
     new TestSets {
       assert(penultimate(l) === 5)
+    }
+  }
+  
+  //P03 (*) Find the Kth element of a list.
+  test("nth: on empty list") {
+    new TestSets {
+      val thrown = intercept[NoSuchElementException] {
+        nth(1, empty)
+      }
+      assert(thrown.getMessage === "NoSuchElementException")
+    }
+  }
+  
+  test("nth: with n greater of list size") {
+    new TestSets {
+      val thrown = intercept[NoSuchElementException] {
+        nth(10, l)
+      }
+      assert(thrown.getMessage === "NoSuchElementException")
+    }
+  }
+  
+  test("nth: on simple list") {
+    new TestSets {
+      assert(nth(2, l) === 2)
     }
   }
   
