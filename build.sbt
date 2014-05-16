@@ -1,4 +1,4 @@
-name <<= submitProjectName(pname => "progfun-"+ pname)
+name <<= submitProjectName(pname => "99ScalaProblems-"+ pname)
 
 version := "1.0.0"
 
