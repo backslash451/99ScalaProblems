@@ -11,7 +11,17 @@ import Lists._
 class ListsSuite extends FunSuite {
 
   trait TestSets {
+    val empty = List()
     val l = List(1, 1, 2, 3, 5, 8)
+  }
+  
+  test("last: on empty list") {
+    new TestSets {
+      val thrown = intercept[NoSuchElementException] {
+        last(empty)
+      }
+      assert(thrown.getMessage === "NoSuchElementException")
+    }
   }
   
   test("last: on simple list") {
