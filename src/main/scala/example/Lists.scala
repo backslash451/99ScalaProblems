@@ -11,7 +11,7 @@ object Lists {
    * res0: Int = 8
    *
    * @param l A list of integers
-   * @retun The last element of the list 'l'
+   * @return The last element of the list 'l'
    * @throws java.util.NoSuchElementException if `l` is an empty list
    */
   def last(l: List[Int]): Int =
@@ -26,7 +26,7 @@ object Lists {
    * res0: Int = 5
    *
    * @param l A list of integers
-   * @retun The penultimate element of the list 'l'
+   * @return The penultimate element of the list 'l'
    * @throws java.util.NoSuchElementException if `l` is an empty list
    */
   def penultimate(l: List[Int]): Int =
@@ -44,16 +44,34 @@ object Lists {
    *
    * @param n The nth position in the list 'l' to look for the element to return
    * @param l A list of integers
-   * @retun The nth element of the list 'l'
+   * @return The nth element of the list 'l'
    * @throws java.util.NoSuchElementException if `l` is an empty list or n is 'out of bound'
    */
   def nth(n: Int, l: List[Int]): Int = {
     def iter(c: Int, l: List[Int]): Int = {
       if (l.isEmpty) throw new java.util.NoSuchElementException("NoSuchElementException")
       else if (c == n) l.head
-      else iter(c+1, l.tail)
+      else iter(c + 1, l.tail)
     }
-    
+
+    iter(0, l)
+  }
+
+  /**
+   * P04 (*) Find the number of elements of a list.
+   * Example:
+   * scala> length(List(1, 1, 2, 3, 5, 8))
+   * res0: Int = 6
+   *
+   * @param l A list of integers
+   * @return The length of the list 'l'
+   */
+  def length(l: List[Int]): Int = {
+    def iter(c: Int, l: List[Int]): Int = {
+      if (l.isEmpty) c
+      else iter(c + 1, l.tail)
+    }
+
     iter(0, l)
   }
 }

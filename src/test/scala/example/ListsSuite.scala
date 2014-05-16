@@ -72,4 +72,17 @@ class ListsSuite extends FunSuite {
     }
   }
   
+  //P04 (*) Find the number of elements of a list.
+  test("length: on empty list") {
+    new TestSets {
+      assert(length(empty) === 0)
+    }
+  }
+  
+  test("length: on simple list") {
+    new TestSets {
+      assert(length(l) === 6)
+    }
+  }
+  
 }
