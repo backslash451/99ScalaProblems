@@ -13,6 +13,7 @@ class ListsSuite extends FunSuite {
   trait TestSets {
     val empty = List()
     val l = List(1, 1, 2, 3, 5, 8)
+    val l1 = List(1, 2, 3, 2, 1)
   }
   
   //P01 (*) Find the last element of a list.
@@ -85,4 +86,35 @@ class ListsSuite extends FunSuite {
     }
   }
   
+  // P05 (*) Reverse a list.
+  test("reverse: on empty list") {
+    new TestSets {
+      assert(reverse(empty) === empty)
+    }
+  }
+  
+  test("reverse: on simple list") {
+    new TestSets {
+      assert(reverse(l) === l.reverse)
+    }
+  }
+  
+  // P06 (*) Find out whether a list is a palindrome.
+  test("isPalindrome: on empty list") {
+    new TestSets {
+      assert(isPalindrome(empty) === true)
+    }
+  }
+  
+  test("isPalindrome: on simple list") {
+    new TestSets {
+      assert(isPalindrome(l) === false)
+    }
+  }
+  
+  test("isPalindrome: on complex list") {
+    new TestSets {
+      assert(isPalindrome(l1) === true)
+    }
+  }
 }
