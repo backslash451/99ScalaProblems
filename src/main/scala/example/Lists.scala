@@ -90,13 +90,29 @@ object Lists {
    * res0: Boolean = true
    *
    * @param l A list of T
-   * @return Wheter the 'l' is palindrome
+   * @return Whether the 'l' is palindrome
    */
   def isPalindrome[T](l: List[T]): Boolean = l match {
     case Nil => true
     case x :: Nil => true
     case x :: tail => if (x == l.last) isPalindrome(tail.init) else false
   }
+
+  /**
+   * P07 (**) Flatten a nested list structure.
+   * Example:
+   * scala> flatten(List(List(1, 1), 2, List(3, List(5, 8))))
+   * res0: List[Any] = List(1, 1, 2, 3, 5, 8)
+   *
+   * @param l A list of T
+   * @return The list 'l' flattened
+   */
+  def flatten(l: List[Any]): List[Any] = l flatMap {
+    case ms: List[_] => flatten(ms)
+    case e => List(e)
+  }
+  
+  
 }
 
 

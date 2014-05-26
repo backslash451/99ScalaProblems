@@ -117,4 +117,19 @@ class ListsSuite extends FunSuite {
       assert(isPalindrome(l1) === true)
     }
   }
+  
+  // P07 (**) Flatten a nested list structure.
+  test("flatten: on empty list") {
+    new TestSets {
+      assert(flatten(empty) === empty)
+    }
+  }
+  
+  test("flatten: on simple list") {
+    new TestSets {
+      val unflattened = List(List(1, 1), 2, List(3, List(5, 8)))
+      assert(flatten(unflattened) === List(1, 1, 2, 3, 5, 8))
+    }
+  }
+
 }
